@@ -22,14 +22,14 @@ int main()
 {
 
     addApplicant();
-    int i;
-    for (i = 0; i < numOfApplicants; i++)
-    { // print all the read applicant info
-        printf("id: %d\nname: %s\neducation: %s\nexperience: %d\nmajor: %s\nGPA: %.2f\nstate: %s\npoint: %.2f\n\n********************\n", (list + i)->id, (list + i)->applicant, (list + i)->education, (list + i)->experience, (list + i)->major, (list + i)->GPA, (list + i)->state, (list + i)->points);
-    }
+    
+    for (int i = 0; i < numOfApplicants; i++) // print all the read applicant info *only for testing*
+       printf("id: %d\nname: %s\neducation: %s\nexperience: %d\nmajor: %s\nGPA: %.2f\nstate: %s\npoint: %.2f\n\n********************\n", (list + i)->id, (list + i)->applicant, (list + i)->education, (list + i)->experience, (list + i)->major, (list + i)->GPA, (list + i)->state, (list + i)->points);
+    
     calculatePoints();
     return 0;
 }
+
 
 void addApplicant()
 {
@@ -38,17 +38,18 @@ void addApplicant()
     fscanf(file, "%*[^\n]\n"); // to get rid of the second line
     int i = 1;
     char ch;
-    // while (!feof(file)){
     while ((ch = fgetc(file)) != EOF)
     {
         fseek(file, -1, SEEK_CUR);                                  // to go back one step
-        list = (Applicant *)realloc(list, sizeof(Applicant) * (i)); // realocate list of applicant each time we read new line
+        list = (Applicant *)realloc(list, sizeof(Applicant) * (i)); // realocate list of applicant each time we read new line until we reach End of File
         fscanf(file, "%d %s %s %d %s %f %s", &(list + i - 1)->id, (list + i - 1)->applicant, (list + i - 1)->education, &(list + i - 1)->experience, (list + i - 1)->major, &(list + i - 1)->GPA, (list + i - 1)->state);
-        (list + i)->points = 0;
+        (list + i-1)->points = 0;
         i++;
     }
     numOfApplicants = i - 2;
 }
+
+
 void calculatePoints()
 {
     for (int i = 0; i < numOfApplicants; i++)
