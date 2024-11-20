@@ -10,6 +10,7 @@ typedef struct
     char major[6];
     float GPA, points;
     char state[10];
+    
 
 } Applicant;
 
@@ -69,6 +70,29 @@ void calculatePoints()
         list[i].points = list[i].GPA + (float) list[i].experience;
         printf(" applicant #%d points are: %.2f \n and was calculated by %.2f + %d\n",i+1,list[i].points, list[i].GPA, list[i].experience); //only for testing
     }
+}
+
+
+
+void updateApplicantStatus(char* MajorList) {
+    int i; // to iterate through applicants in the list
+    float highestPoints = 0.0; // initialize the highest points to 0 to track candidates points
+    int highestCandidateIndex = -1; // initialize the best candidates index using -1 to signal that no valid candidate has been found yet
+
+    for (i = 0; i < numOfApplicants; i++) {   // iterate through applicants
+        if (strstr(MajorList, list[i].major)) { // check if the major matches any major in MajorList
+            strcpy(list[i].state, "candidate"); // set the state to candidate if major matches
+
+            if (list[i].points > highestPoints) { // compare the current applicants points with the highest points found so far
+                highestPoints = list[i].points; //update highestPoints if the current applicant points are more
+                highestCandidateIndex = i; // store the index of the current applicant as the top candidate
+            }
+        }
+    }
+
+        if (highestCandidateIndex != -1) { // ensure there was at least one valid candidate
+        strcpy(list[highestCandidateIndex].state, "Assigned"); // set state of the applicant with the highest points to Assigned
+            }
 }
 
 
