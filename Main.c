@@ -29,10 +29,6 @@ int main()
 
 writeAssignedApplicant();    
     
-        /* code */
-    
-            printf("\nتحياتي واشواقي للجميع\n");//remove later
-
   //  for (int i = 0; i < numOfApplicants; i++) // print all the read applicant info *only for testing*
        //printf("id: %d\nname: %s\neducation: %s\nexperience: %d\nmajor: %s\nGPA: %.2f\nstate: %s\npoint: %.2f\n\n********************\n", (list + i)->id, (list + i)->applicant, (list + i)->education, (list + i)->experience, (list + i)->major, (list + i)->GPA, (list + i)->state, (list + i)->points);
     calculatePoints();
