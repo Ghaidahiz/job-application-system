@@ -48,7 +48,7 @@ void addApplicant()
         (list + i - 1)->points = 0;
         i++;
     }
-    numOfApplicants = i - 2;
+    numOfApplicants = i - 1;
 }
 
 void calculatePoints()
@@ -118,7 +118,6 @@ void writeAssignedApplicant()
         {
             fprintf(file, "%-6d%-8s%-13s%-9s%-7.1f%-9s\n", (list + i)->id, (list + i)->applicant, (list + i)->education, (list + i)->major, (list + i)->points, (list + i)->state);
         }
-        // fprintf(file, "TEST\n"); // remove later
     } // END OF THIRD LIST
 } // END OF THE FUNC.
 
@@ -140,8 +139,6 @@ void printList()
             printf("%-6d%-8s%-13s%-9s%-10.1f%-9s\n", (list + i)->id, (list + i)->applicant, (list + i)->education, (list + i)->major, (list + i)->points, "candidate");
     } // END OF SECOND LIST
 
-    printf("\nTEST1\n"); // remove later
-
     printf("\n----------\n");               // FORMATING ONLY
     printf("\nThe Assigned Applicants:\n"); // print the header of the 3rd list "Assigned"
 
@@ -151,5 +148,4 @@ void printList()
             printf("%-6d%-8s%-13s%-9s%-7.1f%-9s\n", (list + i)->id, (list + i)->applicant, (list + i)->education, (list + i)->major, (list + i)->points, (list + i)->state);
     } // END OF THIRD LIST
 
-    // printf("\nTEST2\n"); // remove later
 }

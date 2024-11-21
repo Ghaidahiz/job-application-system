@@ -7,4 +7,4 @@ id    Name       Education    Experience    Major    GPA    State
 5     Ahmed      MSc          0             SWE      4.9    OWL      
 6     Maha       BSc          1             InS      5.0    OWL      
 7     Lama       BSc          0             PYS      5.0    OWL     
-8     Eman Ameen BSc          1             CSC      5.0    OWL
+8     Eman       MSc          1             CSC      5.0    OWL

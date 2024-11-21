@@ -8,6 +8,7 @@ id    Name    Education    Experience    Major    GPA    State
 5     Ahmed   MSc          10            SWE      4.9    OWL      
 6     Maha    BSc          1             InS      5.0    OWL      
 7     Lama    BSc          0             PYS      5.0    OWL      
+8     Eman    MSc          11            CSC      5.0    OWL      
 
 ----------
 
@@ -17,8 +18,9 @@ id    Name    Education    Major    Points    State
 4     Ali     BSc          CSC      3.4       candidate
 5     Ahmed   MSc          SWE      14.9      candidate
 6     Maha    BSc          InS      6.0       candidate
+8     Eman    MSc          CSC      16.0      candidate
 
 ----------
 
 The Assigned Applicants:
-5     Ahmed   MSc          SWE      14.9   Assigned 
+8     Eman    MSc          CSC      16.0   Assigned 
