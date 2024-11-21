@@ -3,9 +3,9 @@ The applicants are:
 id    Name    Education    Experience    Major    GPA    State    
 1     Fay     BSc          1             CSC      4.5    OWL      
 2     Norah   BSc          2             Math     5.0    OWL      
-3     Sarah   MSc          1             Eng      5.0    OWL      
+3     Sarah   MSc          11            Eng      5.0    OWL      
 4     Ali     BSc          0             CSC      3.4    OWL      
-5     Ahmed   MSc          0             SWE      4.9    OWL      
+5     Ahmed   MSc          10            SWE      4.9    OWL      
 6     Maha    BSc          1             InS      5.0    OWL      
 7     Lama    BSc          0             PYS      5.0    OWL      
 
@@ -13,14 +13,12 @@ id    Name    Education    Experience    Major    GPA    State
 
 The Candidates list is:
 id    Name    Education    Major    Points    State    
+1     Fay     BSc          CSC      5.5       candidate
+4     Ali     BSc          CSC      3.4       candidate
+5     Ahmed   MSc          SWE      14.9      candidate
+6     Maha    BSc          InS      6.0       candidate
 
 ----------
 
 The Assigned Applicants:
-TEST
-TEST
-TEST
-TEST
-TEST
-TEST
-TEST
+5     Ahmed   MSc          SWE      14.9   Assigned 

@@ -15,6 +15,7 @@ typedef struct
 
 Applicant *list = NULL;
 int numOfApplicants = 0;
+
 void addApplicant(); // function prototypes
 void calculatePoints();
 void writeAssignedApplicant();
@@ -25,14 +26,10 @@ int main()
 {
 
     addApplicant();
-
-    writeAssignedApplicant();
-
-    //  for (int i = 0; i < numOfApplicants; i++) // print all the read applicant info *only for testing*
-    // printf("id: %d\nname: %s\neducation: %s\nexperience: %d\nmajor: %s\nGPA: %.2f\nstate: %s\npoint: %.2f\n\n********************\n", (list + i)->id, (list + i)->applicant, (list + i)->education, (list + i)->experience, (list + i)->major, (list + i)->GPA, (list + i)->state, (list + i)->points);
     calculatePoints();
-    printList(); // testing yay
-    setApplicantState ("CSC,InS,MSc SWE,CEN");
+    setApplicantState("CSC,InS,MSc SWE,CEN");
+    writeAssignedApplicant();
+    printList();
     return 0;
 }
 
@@ -61,7 +58,7 @@ void calculatePoints()
         if (strcmp("MSc", list[i].education) == 0) // checking if this applicant has a masters degree
             list[i].experience += 10;              // add 10 years to the experience
         list[i].points = list[i].GPA + (float)list[i].experience;
-        printf(" applicant #%d points are: %.2f \n and was calculated by %.2f + %d\n", i + 1, list[i].points, list[i].GPA, list[i].experience); // only for testing
+        // printf(" applicant #%d points are: %.2f \n and was calculated by %.2f + %d\n", i + 1, list[i].points, list[i].GPA, list[i].experience); // only for testing
     }
 }
 
@@ -108,8 +105,8 @@ void writeAssignedApplicant()
 
     for (int i = 0; i < numOfApplicants; i++)
     { // Prints all Applicants with the "Candidate" state only
-        if (strcmp(list->state, "candidate") == 0)
-            fprintf(file, "%-6d%-8s%-13s%-9s%-10.1f%-9s\n", (list + i)->id, (list + i)->applicant, (list + i)->education, (list + i)->major, (list + i)->points, (list + i)->state);
+        if (strcmp((list + i)->state, "candidate") == 0 || strcmp((list + i)->state, "Assigned") == 0)
+            fprintf(file, "%-6d%-8s%-13s%-9s%-10.1f%-9s\n", (list + i)->id, (list + i)->applicant, (list + i)->education, (list + i)->major, (list + i)->points, "candidate");
     } // END OF SECOND LIST
 
     fprintf(file, "\n----------\n");               // FORMATING ONLY
@@ -117,11 +114,11 @@ void writeAssignedApplicant()
 
     for (int i = 0; i < numOfApplicants; i++)
     { // Prints the Applicant with the "Assigned" state only
-        if (strcmp(list->state, "Assigned") == 0)
+        if (strcmp((list + i)->state, "Assigned") == 0)
         {
             fprintf(file, "%-6d%-8s%-13s%-9s%-7.1f%-9s\n", (list + i)->id, (list + i)->applicant, (list + i)->education, (list + i)->major, (list + i)->points, (list + i)->state);
         }
-        fprintf(file, "TEST\n"); // remove later
+        // fprintf(file, "TEST\n"); // remove later
     } // END OF THIRD LIST
 } // END OF THE FUNC.
 
@@ -139,8 +136,8 @@ void printList()
 
     for (int i = 0; i < numOfApplicants; i++)
     { // Prints all Applicants with the "Candidate" state only
-        if (strcmp(list->state, "candidate") == 0)
-            printf("%-6d%-8s%-13s%-9s%-10.1f%-9s\n", (list + i)->id, (list + i)->applicant, (list + i)->education, (list + i)->major, (list + i)->points, (list + i)->state);
+        if (strcmp((list + i)->state, "candidate") == 0 || strcmp((list + i)->state, "Assigned") == 0)
+            printf("%-6d%-8s%-13s%-9s%-10.1f%-9s\n", (list + i)->id, (list + i)->applicant, (list + i)->education, (list + i)->major, (list + i)->points, "candidate");
     } // END OF SECOND LIST
 
     printf("\nTEST1\n"); // remove later
@@ -150,9 +147,9 @@ void printList()
 
     for (int i = 0; i < numOfApplicants; i++)
     { // Prints the Applicant with the "Assigned" state only
-        if (strcmp(list->state, "Assigned") == 0)
+        if (strcmp((list + i)->state, "Assigned") == 0)
             printf("%-6d%-8s%-13s%-9s%-7.1f%-9s\n", (list + i)->id, (list + i)->applicant, (list + i)->education, (list + i)->major, (list + i)->points, (list + i)->state);
     } // END OF THIRD LIST
 
-    printf("\nTEST2\n"); // remove later
+    // printf("\nTEST2\n"); // remove later
 }
