@@ -19,7 +19,7 @@ void addApplicant(); // function prototypes
 void calculatePoints();
 void writeAssignedApplicant();
 void printList();
-void updateApplicantStatus();
+void setApplicantState();
 
 int main()
 {
@@ -32,7 +32,7 @@ int main()
     // printf("id: %d\nname: %s\neducation: %s\nexperience: %d\nmajor: %s\nGPA: %.2f\nstate: %s\npoint: %.2f\n\n********************\n", (list + i)->id, (list + i)->applicant, (list + i)->education, (list + i)->experience, (list + i)->major, (list + i)->GPA, (list + i)->state, (list + i)->points);
     calculatePoints();
     printList(); // testing yay
-
+    setApplicantState ("CSC,InS,MSc SWE,CEN");
     return 0;
 }
 
@@ -65,7 +65,7 @@ void calculatePoints()
     }
 }
 
-void updateApplicantStatus(char *MajorList)
+void setApplicantState(char *MajorList)
 {
     int i;                          // to iterate through applicants in the list
     float highestPoints = 0.0;      // initialize the highest points to 0 to track candidates points
