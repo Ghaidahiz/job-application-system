@@ -55,10 +55,9 @@ void calculatePoints()
 {
     for (int i = 0; i < numOfApplicants; i++)
     {
-        if (strcmp("MSc", list[i].education) == 0) // checking if this applicant has a masters degree
-            list[i].experience += 10;              // add 10 years to the experience
+        if (strcmp("MSc", list[i].education) == 0) // check if this applicant has a masters degree
+            list[i].experience += 10;              // if yes, add 10 years to the experience
         list[i].points = list[i].GPA + (float)list[i].experience;
-        // printf(" applicant #%d points are: %.2f \n and was calculated by %.2f + %d\n", i + 1, list[i].points, list[i].GPA, list[i].experience); // only for testing
     }
 }
 
